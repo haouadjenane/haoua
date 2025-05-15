@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title> login</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<form onsubmit="return validation_login()" action="login.php" method="POST">
+  <h1> Log IN </h1>
+
+<table>
+    <tr>
+      <td colspan="2"><img src="bb.jpg" width="300px" height="300px"></td> 
+    </tr>
+    <td colspan="2">
+      <h6 id="error_message"></h6>
+    </td>
+    <tr>
+      <td>E_mail</td>
+      <td><input type="email" name="email" placeholder="email.com">
+      </td>
+    </tr>
+    <tr>
+      <td>password</td>
+      <td><input type="password" name ="password" placeholder="password"></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td>
+        <input type="submit">
+        <input type="reset">
+      </td>
+    </tr>
+    <tr>
+      <td></td>
+      <td><a href="inscription.html">Sign up </a></td>
+    </tr>
+    </table>
+</form>
+<script>
+  function validation_login() {
+  var email = document.forms[0].email.value;
+  var password = document.forms[0].password.value;
+  var error = document.getElementById('error_message');
+
+  if (email.length == 0 && password.length == 0) {
+    error.textContent = 'email and password are required';
+    return false;
+  } else if (email.length == 0) {
+    error.textContent = 'email should not be empty';
+    return false;
+  } else if (password.length == 0) {
+    error.textContent = 'password should not be empty';
+    return false;
+  }
+
+  // ✅ إذا كلش معمّر، خلّي الفورم يتبعت
+  return true;
+}
+</script>
+  </body>
+  </html>
+

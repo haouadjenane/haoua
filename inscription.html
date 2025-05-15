@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" href="creat.css">
+</head>
+<body>
+<div class="main">
+  <h2>Create an account</h2>
+
+  <div class="form">
+<form method="POST" action="inscription.php" onsubmit="return Validation_infos()">
+<table>
+    <tr>
+       <td>First Name</td>
+       <td><input type="text"  id="firstName" name="No_Clt" placeholder="First Name ">
+        <div id="firstNameError" class="error"></div> </td>
+     </tr>
+    <tr>
+      <td>Last Name</td>
+      <td><input type="text" id="lastName" name="Pno_Clt" placeholder="Last Name">
+        <div id="lastNameError" class="error"></div> 
+      </td>
+    </tr>
+    <tr>
+      <td> Age </td>
+      <td><input type="number"  id="Age" min="1" name="Age_Clt" placeholder="Age">
+        <div id="AgeError" class="error"></div> 
+      </td>
+    </tr>
+    <tr> 
+      <td> Wilaya</td>
+      <td><select id="wilaya" name="Wi_Clt" aria-placeholder="Wilaya">
+        <option value="" disabled selected hidden>Select your Wilaya</option>
+        <option value="setif">Setif</option>
+        <option value="alger">Alger</option>
+        <option value="oran">Oran</option>
+        <option value="Mdea">Mdea</option>
+        <option value="Bejaia">Bejaia</option>
+        <option value="Annaba">Annaba</option>
+        </select>
+        <div id="wilayaError" class="error"></div>
+      </td>
+    </tr>
+    <tr>
+      <td>Phone Number </td>
+      <td><input type="tel" id="phone" name="Tel_Clt" placeholder="Phone">
+        <div id="phoneError" class="error"></div>
+      </td>
+    </tr>
+    <tr>
+      <td>Email</td>
+      <td><input type="email" id="E_mail" name="Mail_Clt" placeholder="E_mail">
+        <div id="E_mailError" class="error"></div> 
+      </td>
+    </tr>
+    <tr>
+      <td>Address</td>
+      <td><textarea  id="address" name="Adr_Clt" cols="21px" rows="5px"></textarea>
+        <div id="addressError" class="error"></div>
+      </td>
+    </tr>
+    <tr>
+      <td>Password </td>
+      <td><input type="password" name="Mot_Clt" id="Password" >
+        <div id="passwordError" class="error"></div>
+      </td>
+    </tr>
+    <tr>
+      <td>Confirm Password </td>
+      <td><input type="password" id="confirmPassword" placeholder="Confirm Password">
+        <div id="confirmPasswordError" class="error"></div>
+      </td>
+    </tr>
+    <tr>
+      <td>Gender </td>
+      <td><input type="radio" value="male" name="Sexe_Clt">Male
+        <input type="radio" name="Sexe_Clt" value="Female">Female
+        <div id="genderError" class="error"></div>
+      </td>
+    </tr>
+    <tr>
+      <td></td>
+      <td>
+        <button type="submit" value="Send"> Send </button>
+       <button type="reset">Cancel</button>
+      </td>
+    </tr>
+  </table>
+</form>
+<script>
+
+function Validation_infos() {
+            var firstName = document.getElementById("firstName").value.trim();
+            var lastName = document.getElementById("lastName").value.trim();
+            var email = document.getElementById("E_mail").value.trim();
+            var address = document.getElementById("address").value.trim();
+            var Age = document.getElementById("Age").value;
+            var phone = document.getElementById("phone").value.trim();
+            var password = document.getElementById("Password").value;
+             var confirmPassword = document.getElementById("confirmPassword").value;
+             var wilaya = document.getElementById("wilaya").value;
+           var gender = document.querySelector('input[name="Sexe_Clt"]:checked');
+            document.getElementById("firstNameError").innerHTML = "";
+  document.getElementById("lastNameError").innerHTML = "";
+  document.getElementById("E_mailError").innerHTML = "";
+  document.getElementById("addressError").innerHTML = "";
+  document.getElementById("AgeError").innerHTML = "";
+  document.getElementById("phoneError").innerHTML = "";
+  document.getElementById("passwordError").innerHTML = "";
+  document.getElementById("confirmPasswordError").innerHTML = "";
+  document.getElementById("wilayaError").innerHTML = "";
+  document.getElementById("genderError").innerHTML = "";
+
+  var valid = true;
+
+  if (firstName === "") {
+    document.getElementById("firstNameError").innerHTML = "enter your first name";
+    valid = false;
+  }
+
+  if (lastName === "") {
+    document.getElementById("lastNameError").innerHTML = "enter your last name ";
+    valid = false;
+  }
+
+  if (email === "") {
+    document.getElementById("E_mailError").innerHTML = "enter your E_mail";
+    valid = false;
+  }
+
+  if (address === "") {
+    document.getElementById("addressError").innerHTML = "enter your address";
+    valid = false;
+  }
+  if (Age === "" || Age < 17 || Age > 100) {
+    document.getElementById("AgeError").innerHTML = "the user’s age must be between 17 and 100 years";
+    valid = false;
+  }
+  if (phone === "" || !/^\d{9,10}$/.test(phone)) {
+    document.getElementById("phoneError").innerHTML="Phone number must contain 9 or 10 digits";
+  valid = false;
+}
+if (password === "" || password.length < 8) {
+    document.getElementById("passwordError").innerHTML = "Password must be at least 8 characters";
+    valid = false;
+  }
+
+  if (confirmPassword === "" || confirmPassword.length < 8) {
+    document.getElementById("confirmPasswordError").innerHTML = "Confirm Password must be at least 8 characters";
+    valid = false;
+  }
+
+  if (password !== "" && confirmPassword !== "" && password !== confirmPassword) {
+    document.getElementById("confirmPasswordError").innerHTML = "Passwords do not match";
+    valid = false;
+  }
+
+  // Wilaya validation
+  if (wilaya === "") {
+  document.getElementById("wilayaError").innerHTML = "Please select a wilaya";
+  valid = false;
+}
+
+  // Gender validation
+  if (!gender) {
+    document.getElementById("genderError").innerHTML = "Please select your gender";
+    valid = false;
+  }
+  if (valid) {
+ alert("All information is correct!\nWilaya: " + wilaya + "\nGender: " + gender.value);
+ return true;
+}
+
+return false;
+}
+</script>
+  </body>
+  </html>

@@ -1,0 +1,91 @@
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-image: url("hungry.jpg");
+    background-size: cover;
+    background-position: center;
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+  }
+  
+  form {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(15px);
+    border-radius: 20px;
+    padding: 30px;
+    width: 350px;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.3);
+    text-align: center;
+    color: white;
+  }
+  
+  h1 {
+    font-size: 32px;
+    color: #f1e5eb;
+    margin-bottom: 20px;
+    font-weight: bold;
+    letter-spacing: 1px;
+    text-shadow: 0 0 5px rgba(255, 255, 255, 0.5);
+  }
+  
+  img {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    border: 3px solid #fff;
+    margin-bottom: 15px;
+  }
+  
+  input {
+    margin: 8px 0;
+    padding: 12px;
+    width: 100%;
+    border: none;
+    border-radius: 10px;
+    outline: none;
+    font-size: 14px;
+    background: rgba(255, 255, 255, 0.85);
+    color: #333;
+  }
+  
+  input::placeholder {
+    color: #999;
+    font-size: 13px;
+  }
+  
+  input[type="submit"], input[type="reset"] {
+    background: #ff69b4;
+    color: white;
+    border: none;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+  }
+  
+  input[type="submit"]:hover, input[type="reset"]:hover {
+    background: #d14792;
+  }
+  
+  a {
+    display: inline-block;
+    margin-top: 15px;
+    font-weight: bold;
+    text-decoration: none;
+    color: #ff69b4;
+    transition: 0.3s;
+  }
+  
+  a:hover {
+    color: #d14792;
+    text-decoration: underline;
+  }
+  
+  #error_message {
+    color: #ff6b6b;
+    font-size: 12px;
+    margin-top: 5px;
+  }
+  

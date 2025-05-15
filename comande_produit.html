@@ -1,0 +1,121 @@
+
+<!DOCTYPE html>
+<html>
+<body>
+<head>
+  <style>
+    body {
+      background-color: #f8f8f8;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 60px;
+      background-image: url(Flowers.jpg);
+      background-repeat: no-repeat;
+      background-size: cover;
+      
+
+    }
+
+    .container {
+      background-color: #fff;
+      border-radius: 16px;
+      box-shadow: 0 12px 30px rgba(0,0,0,0.1);
+      padding: 30px 40px;
+      display: flex;
+      gap: 40px;
+      align-items: center;
+    }
+
+    img {
+      width: 300px;
+      height: 300px;
+      object-fit: cover;
+      border-radius: 12px;
+    }
+
+    table {
+      border-spacing: 15px;
+    }
+
+    td {
+      font-size: 16px;
+      font-weight: 500;
+      color: #333;
+    }
+
+    input[type="text"],
+    input[type="number"] {
+      padding: 10px 14px;
+      border-radius: 10px;
+      border: 1.5px solid #ccc;
+      font-size: 15px;
+      width: 220px;
+    }
+
+    input[type="radio"] {
+      margin-right: 6px;
+    }
+
+    input[type="submit"] {
+      padding: 12px 24px;
+      border: none;
+      border-radius: 10px;
+      background-color: #b30000;
+      color: white;
+      font-size: 15px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: 0.3s ease;
+    }
+
+    input[type="submit"]:hover {
+      background-color: #8a0000;
+    }
+
+    h2 {
+      text-align: center;
+      color: #b30000;
+      margin-bottom: 25px;
+      font-size: 24px;
+      font-weight: bold;
+    }
+    
+  </style>
+</head>
+ <form method="POST" action="command.php"id="commande-form">
+<table>
+    <tr>
+      <td rowspan="6"><img id="product-img" src="" width="300px" height="300px"></td>
+      <td>Seller's Name:</td>
+      <td><input type="text" name="nom" value="EveAura" readonly></td>
+    </tr>
+    <tr>
+      <td>Price:</td>
+      <td><input type="text" name="price"id="product-price" value="11500" readonly></td>
+    </tr>
+    <tr>
+      <td> Reference:</td>
+      <td><input type="text" name="reference" value="M20325" readonly ></td>
+    <tr>
+      <td>Color: </td>
+      <td><input type="radio" name="color" value="gold" >Gold<br>
+        <input type="radio" name="color" value="silver"> Silver
+      </td>
+    </tr>
+    <tr>
+      <td>Quantity:</td>
+      <td><input type="number"  name="quantite" min="1" value="1"></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td><input type="submit" value="Command ">
+      <input type="hidden" name="image" id="product-image-hidden">
+    </td>
+    </tr>
+  </table>
+  </form>
+  <script src="validation.js"></script>
+</body>
+</html>
